@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Server {
+  id      String   @id
+  victims String[]
+  sounds  Sound[]
+
+  @@map("servers")
+}
+
+model Sound {
+  id         Int    @id @default(autoincrement())
+  name       String
+  uploaderId String @map("uploader_id")
+
+  server   Server @relation(fields: [serverId], references: [id])
+  serverId String @map("server_id")
+
+  @@map("sounds")
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ES7"],
+    "types": ["node"],
+    "module": "CommonJS",
+    "outDir": "build",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": false
+  },
+  "include": ["src"]
+}

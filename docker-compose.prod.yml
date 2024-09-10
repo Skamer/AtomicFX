@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  bot:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: runner
+
+    volumes:
+      - ./sounds:/app/sounds
+
+    environment:
+      - DISCORD_TOKEN=
+      - DEPLOY_COMMANDS_APPLICATION_ID=
+      - DEPLOY_COMMANDS_GUILD_ID=
+      - DATABASE_URL=
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=
+      - POSTGRES_USER=
+
+    volumes:
+      - ./data:/var/lib/postgresql/data

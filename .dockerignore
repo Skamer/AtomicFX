@@ -1,0 +1,9 @@
+.dockerignore
+.git
+Dockerfile
+/.pnpm-store 
+/node_modules
+/sounds
+/.vscode
+/build
+/data

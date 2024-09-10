@@ -1,0 +1,33 @@
+services:
+  bot:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: base
+
+    volumes:
+      - .:/app
+
+    entrypoint: ["sh", "-c", "yarn install && yarn run prisma generate && yarn run dev:debug"]
+
+    ports:
+      - 9229:9229
+
+    environment:
+      - DISCORD_TOKEN=
+      - DEPLOY_COMMANDS_APPLICATION_ID=
+      - DEPLOY_COMMANDS_GUILD_ID=
+      - DATABASE_URL=
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=
+      - POSTGRES_USER=
+
+    ports:
+      - 5432:5432
+
+    volumes:
+      - ./data:/var/lib/postgresql/data

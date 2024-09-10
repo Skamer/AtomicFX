@@ -1,0 +1,33 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "prisma": "prisma",
+    "dev:debug": "tsc-watch --noClear --onSuccess \"node --inspect=0.0.0.0:9229 ./build/index.js \"",
+    "dev": "tsc-watch --noClear --onSuccess \"node ./build/index.js \"",
+    "build": "tsc --build tsconfig.build.json",
+    "start": "node ./build/index.js",
+    "deployCommands": "node ./build/deployCommands.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "prisma": "^4.12.0",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.15.0",
+    "@napi-rs/canvas": "^0.1.39",
+    "@prisma/client": "^4.12.0",
+    "discord.js": "^14.8.0",
+    "prisma-redis-middleware": "^4.6.1",
+    "sodium-native": "^4.0.1"
+  }
+}
